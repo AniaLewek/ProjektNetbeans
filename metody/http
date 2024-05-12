@@ -1,0 +1,22 @@
+### GET request with a header
+GET http://localhost:8080/klienci/dodajTestowe
+
+###
+GET localhost:8080/klienci/pokazWszystkie
+
+###
+GET localhost:8080/produkty/dodajTestowe
+
+###
+GET localhost:8080/produkty/pokazWszystkie
+
+###
+POST localhost:8080/produkty/utworz
+Content-Type: application/json
+
+{
+  "kategoria": "test",
+  "nazwa": "a po co Ci to",
+  "kolor": "zajebisty",
+  "cena": -3.4
+}
