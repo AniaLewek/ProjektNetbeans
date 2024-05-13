@@ -43,7 +43,7 @@ public class ZamowieniaWymiarKontroler {
         return result;
     }
     @GetMapping("/szukajPoNazwie/{idKlienta}")
-    public String fetchDataByNazwaZamowieniaWymiar (@PathVariable("idKlienta") String idKlienta) {
+    public String fetchDataByNazwaZamowieniaWymiar (@PathVariable("idKlienta") int idKlienta) {
         for (zamowieniaWymiar projekt: zamowieniaWymiarRepo.findByIdKlient (idKlienta) ) {
             return projekt.toString ();
         }

@@ -26,25 +26,21 @@ public class szczegolyZamowienia implements Serializable {
     
     @Column (name = "ilosc")
     private int ilosc;
-    
-    @Column (name = "cena")
-    private Double cena;
+
 
     public szczegolyZamowienia    () {};
     //Konstruktor stosowany do tworzenia nowych produktow w bazie
-    public szczegolyZamowienia    (int idZamowienie, int idProdukt, int ilosc, Double cena) {
+    public szczegolyZamowienia    (int idZamowienie, int idProdukt, int ilosc) {
         this.setIdZamowienie (idZamowienie);
         this.setIdProdukt (idProdukt);
         this.setIlosc (ilosc);
-        this.setCena (cena);
     }
     //Konstruktor stosowany do edytowania istniejących produktow w bazie
-    public szczegolyZamowienia    (int id, int idZamowienie, int idProdukt, int ilosc, Double cena) {
+    public szczegolyZamowienia    (int id, int idZamowienie, int idProdukt, int ilosc) {
         this.setId(id);
         this.setIdZamowienie (idZamowienie);
         this.setIdProdukt (idProdukt);
         this.setIlosc (ilosc);
-        this.setCena (cena);
     }
     public int getId() {
         return id;
@@ -70,12 +66,6 @@ public class szczegolyZamowienia implements Serializable {
     public void setIlosc (int ilosc) {
         this.ilosc = ilosc;
     }
-    public Double getCena() {
-        return cena;
-    }
-    public void setCena (Double cena) {
-        this.cena = cena;
-    }
     
     @Override
     public String toString () {
@@ -84,7 +74,6 @@ public class szczegolyZamowienia implements Serializable {
             ", idZamowienie ='" + idZamowienie + '\"' +
             ", idProdukt ='" + idProdukt  + '\"' +
             ", ilosc='" + ilosc + '\"' +
-            ", cena='" + cena + '\"' +
             ')';
     }
 }

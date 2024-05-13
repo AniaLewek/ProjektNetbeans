@@ -20,9 +20,9 @@ public class SzczegolyZamowieniaKontroler {
     public String dodajDaneTestoweSzczegolyZamowienia (){
 
         szczegolyZamowieniaRepo.saveAll (Arrays. asList(
-                new szczegolyZamowienia(1, 1, 2, 250.0),
-                new szczegolyZamowienia (1, 2, 1, 150.0),
-                new szczegolyZamowienia (2, 3, 2, 300.0)));
+                new szczegolyZamowienia(1, 1, 2),
+                new szczegolyZamowienia (1, 2, 1),
+                new szczegolyZamowienia (2, 3, 2)));
 
         return "Testowe rekordy dodane!";
     }
@@ -40,7 +40,7 @@ public class SzczegolyZamowieniaKontroler {
         return result;
     }
         @GetMapping("/szukajPoNazwie/{idZamowienia}")
-    public String fetchDataByNazwaSzczegolyZamowienia (@PathVariable("idZamowienia") String idZamowienia) {
+    public String fetchDataByNazwaSzczegolyZamowienia (@PathVariable("idZamowienia") int idZamowienia) {
         for (szczegolyZamowienia projekt: szczegolyZamowieniaRepo.findByIdZamowienie (idZamowienia) ) {
             return projekt.toString ();
         }
@@ -56,8 +56,7 @@ public class SzczegolyZamowieniaKontroler {
         int idZamowienie = Integer.parseInt(body.get("idZamowienie"));
         int idProdukt = Integer.parseInt(body.get("idProdukt"));
         int ilosc = Integer.parseInt(body.get("ilosc"));
-        Double cena = Double.parseDouble(body.get("cena"));
-        return szczegolyZamowieniaRepo.save(new szczegolyZamowienia(idZamowienie, idProdukt, ilosc, cena));
+        return szczegolyZamowieniaRepo.save(new szczegolyZamowienia(idZamowienie, idProdukt, ilosc));
     }
     @PutMapping ("/zmien")
     public szczegolyZamowienia zmienSzczegolyZamowienia (@RequestBody Map<String, String> body) {
@@ -65,7 +64,6 @@ public class SzczegolyZamowieniaKontroler {
         int idZamowienie = Integer.parseInt(body.get("idZamowienie"));
         int idProdukt = Integer.parseInt(body.get("idProdukt"));
         int ilosc = Integer.parseInt(body.get("ilosc"));
-        Double cena = Double.parseDouble(body.get("cena"));
-        return szczegolyZamowieniaRepo.save(new szczegolyZamowienia(szczegolyZamowieniaId, idZamowienie, idProdukt, ilosc, cena));
+        return szczegolyZamowieniaRepo.save(new szczegolyZamowienia(szczegolyZamowieniaId, idZamowienie, idProdukt, ilosc));
     }
 }

@@ -42,7 +42,7 @@ public class ZamowieniaGotoweKontroler {
         return result;
     }
     @GetMapping("/szukajPoNazwie/{idKlienta}")
-    public String fetchDataByNazwaZamowieniaGotowe (@PathVariable("idKlienta") String idKlienta) {
+    public String fetchDataByNazwaZamowieniaGotowe (@PathVariable("idKlienta") int idKlienta) {
         for (zamowieniaGotowe projekt: zamowieniaGotoweRepo.findByIdKlient (idKlienta) ) {
             return projekt.toString ();
         }
